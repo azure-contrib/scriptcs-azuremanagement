@@ -1,0 +1,12 @@
+{
+	Subscriptions : [
+		{
+			Name : "[SUBSCRIPTION_NAME]",
+			SubscriptionId : "[SUBSCRIPTION_ID]",
+			ManagementCertificate:
+			{
+				Thumbprint : "[MANAGEMENTCERTIFICATE_THUMBPRINT]"
+			}
+		}
+	]
+}
