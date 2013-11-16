@@ -1,0 +1,2 @@
+scriptcs-azuremanagement
+========================
