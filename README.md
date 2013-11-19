@@ -15,10 +15,32 @@ Provides the following:
 
 # Installation #
 
-**TODO**
 Install the nuget package by running
 
 	scriptcs -install ScriptCs.AzureManagement -pre
+
+To compensate for the following scriptcs and NuGet issue [`https://github.com/scriptcs/scriptcs/issues/511`](https://github.com/scriptcs/scriptcs/issues/511 "NuGet Package installation issue with package.config and targetFramework") you will need to manually edit the packages.config file and add `targetFramework="portable-net45+sl50+wp80+win"` to the following:
+
+- Microsoft.WindowsAzure.Management
+- Microsoft.WindowsAzure.Management.Compute
+- Microsoft.WindowsAzure.Management.Libraries
+- Microsoft.WindowsAzure.Management.Storage
+- Microsoft.WindowsAzure.Management.VirtualNetworks
+- Microsoft.WindowsAzure.Management.WebSites 
+
+Your packages.config file should look as follows:
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <packages>
+      ...
+      <package id="Microsoft.WindowsAzure.Management" version="0.9.1-preview" targetFramework="portable-net45+sl50+wp80+win" />
+      <package id="Microsoft.WindowsAzure.Management.Compute" version="0.9.2-preview" targetFramework="portable-net45+sl50+wp80+win" />
+      <package id="Microsoft.WindowsAzure.Management.Libraries" version="0.9.1-preview" targetFramework="portable-net45+sl50+wp80+win" />
+      <package id="Microsoft.WindowsAzure.Management.Storage" version="0.9.0-preview" targetFramework="portable-net45+sl50+wp80+win" />
+      <package id="Microsoft.WindowsAzure.Management.VirtualNetworks" version="0.9.0-preview" targetFramework="portable-net45+sl50+wp80+win" />
+      <package id="Microsoft.WindowsAzure.Management.WebSites" version="0.9.0-preview" targetFramework="portable-net45+sl50+wp80+win" />
+      ...
+    </packages>
 
 # Usage #
 
