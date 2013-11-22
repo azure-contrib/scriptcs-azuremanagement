@@ -18,6 +18,15 @@ namespace ScriptCs.AzureManagement.ScriptPack
         "Microsoft.WindowsAzure.Management.Compute.Models",
         "Microsoft.WindowsAzure.Management.Compute",
         "Microsoft.WindowsAzure.Management.Models",
+        "Microsoft.WindowsAzure.Management.Monitoring",
+        "Microsoft.WindowsAzure.Management.Monitoring.Alerts",
+        "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models",
+        "Microsoft.WindowsAzure.Management.Monitoring.Autoscale",
+        "Microsoft.WindowsAzure.Management.Monitoring.Autoscale.Models",
+        "Microsoft.WindowsAzure.Management.Monitoring.Metrics",
+        "Microsoft.WindowsAzure.Management.Monitoring.Metrics.Models",
+        "Microsoft.WindowsAzure.Management.Scheduler",
+        "Microsoft.WindowsAzure.Management.Scheduler.Models",
         "Microsoft.WindowsAzure.Management.Storage.Models",
         "Microsoft.WindowsAzure.Management.Storage",
         "Microsoft.WindowsAzure.Management.VirtualNetworks.Models",
@@ -26,6 +35,7 @@ namespace ScriptCs.AzureManagement.ScriptPack
         "Microsoft.WindowsAzure.Management.WebSites",
         "Microsoft.WindowsAzure.Management",
         "Microsoft.WindowsAzure",
+        "Microsoft.WindowsAzure.Common",
       }.ToList();
 
       var references = new[]

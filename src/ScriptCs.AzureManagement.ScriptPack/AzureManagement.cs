@@ -7,6 +7,8 @@ using ScriptCs.AzureManagement.Common.Credentials;
 using ScriptCs.AzureManagement.Common.TracingInterceptors;
 using ScriptCs.AzureManagement.Compute;
 using ScriptCs.AzureManagement.Infrastructure;
+using ScriptCs.AzureManagement.Monitoring;
+using ScriptCs.AzureManagement.Scheduler;
 using ScriptCs.AzureManagement.Storage;
 using ScriptCs.AzureManagement.VirtualNetwork;
 using ScriptCs.AzureManagement.WebSite;
@@ -20,11 +22,13 @@ namespace ScriptCs.AzureManagement.ScriptPack
     private ICredentialManager _credentialManager;
     private HttpTracingInterceptor _httpTracingInterceptor;
 
-    private Lazy<InfrastructureManagement> _infrastructureManagement;
-    private Lazy<StorageManagement> _storageManagement;
     private Lazy<ComputeManagement> _computeManagement;
-    private Lazy<WebSiteManagement> _webSiteManagement;
+    private Lazy<InfrastructureManagement> _infrastructureManagement;
+    private Lazy<MonitoringManagement> _monitoringManagement;
+    private Lazy<SchedulerManagement> _schedulerManagement;
+    private Lazy<StorageManagement> _storageManagement;
     private Lazy<VirtualNetworkManagement> _virtualNetworkManagement;
+    private Lazy<WebSiteManagement> _webSiteManagement;    
 
     public AzureManagement(AzureManagementContext context)
     {
@@ -49,18 +53,23 @@ namespace ScriptCs.AzureManagement.ScriptPack
         Logger = _logger,
         CredentialManager = _credentialManager
       };
-      _infrastructureManagement = new Lazy<InfrastructureManagement>(() => new InfrastructureManagement(managementContext));
-      _storageManagement = new Lazy<StorageManagement>(() => new StorageManagement(managementContext));
+
       _computeManagement = new Lazy<ComputeManagement>(() => new ComputeManagement(managementContext));
-      _webSiteManagement = new Lazy<WebSiteManagement>(() => new WebSiteManagement(managementContext));
+      _infrastructureManagement = new Lazy<InfrastructureManagement>(() => new InfrastructureManagement(managementContext));
+      _monitoringManagement = new Lazy<MonitoringManagement>(() => new MonitoringManagement(managementContext));
+      _schedulerManagement = new Lazy<SchedulerManagement>(() => new SchedulerManagement(managementContext));
+      _storageManagement = new Lazy<StorageManagement>(() => new StorageManagement(managementContext));
       _virtualNetworkManagement = new Lazy<VirtualNetworkManagement>(() => new VirtualNetworkManagement(managementContext));
+      _webSiteManagement = new Lazy<WebSiteManagement>(() => new WebSiteManagement(managementContext));      
     }
 
-    public InfrastructureManagement InfrastructureManagement { get { return _infrastructureManagement.Value; } }
-    public StorageManagement StorageManagement { get { return _storageManagement.Value; } }
     public ComputeManagement ComputeManagement { get { return _computeManagement.Value; } }
-    public WebSiteManagement WebSiteManagement { get { return _webSiteManagement.Value; } }
+    public InfrastructureManagement InfrastructureManagement { get { return _infrastructureManagement.Value; } }
+    public MonitoringManagement MonitoringManagement { get { return _monitoringManagement.Value; } }
+    public SchedulerManagement SchedulerManagement { get { return _schedulerManagement.Value; } }
+    public StorageManagement StorageManagement { get { return _storageManagement.Value; } }
     public VirtualNetworkManagement VirtualNetworkManagement { get { return _virtualNetworkManagement.Value; } }
+    public WebSiteManagement WebSiteManagement { get { return _webSiteManagement.Value; } }
 
     public bool HttpTraceEnabled
     {

@@ -22,6 +22,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptCs.AzureManagement.We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptCs.AzureManagement.VirtualNetwork", "ScriptCs.AzureManagement.VirtualNetwork\ScriptCs.AzureManagement.VirtualNetwork.csproj", "{7391ADE5-FD5C-499E-8F98-3BEC22433640}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptCs.AzureManagement.Scheduler", "ScriptCs.AzureManagement.Scheduler\ScriptCs.AzureManagement.Scheduler.csproj", "{CC277269-5B49-4806-8C56-14304E688639}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptCs.AzureManagement.Monitoring", "ScriptCs.AzureManagement.Monitoring\ScriptCs.AzureManagement.Monitoring.csproj", "{2E023BCE-53A2-4F66-B49F-F611749ADBCD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +60,14 @@ Global
 		{7391ADE5-FD5C-499E-8F98-3BEC22433640}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7391ADE5-FD5C-499E-8F98-3BEC22433640}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7391ADE5-FD5C-499E-8F98-3BEC22433640}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC277269-5B49-4806-8C56-14304E688639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC277269-5B49-4806-8C56-14304E688639}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC277269-5B49-4806-8C56-14304E688639}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC277269-5B49-4806-8C56-14304E688639}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E023BCE-53A2-4F66-B49F-F611749ADBCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E023BCE-53A2-4F66-B49F-F611749ADBCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E023BCE-53A2-4F66-B49F-F611749ADBCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E023BCE-53A2-4F66-B49F-F611749ADBCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
