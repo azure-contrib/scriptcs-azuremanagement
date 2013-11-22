@@ -9,6 +9,8 @@ Provides the following:
 
 - Infrastructure Management (Locations, Credentials, Subscriptions, Certificates)
 - Compute Management (Hosted Services, Deployments, Virtual Machines, Virtual Machine Images & Disks)
+- Monitoring Management (Alerts, Autoscale, Metrics)
+- Scheduler Management (Jobs)
 - Storage Management (Storage Accounts)
 - WebSite Management (Web Sites, Web Site Publish Profiles, Usage Metrics, Repositories)
 - Virtual Network Management (Networks, Gateways)
@@ -19,29 +21,6 @@ Install the nuget package by running
 
 	scriptcs -install ScriptCs.AzureManagement -pre
 
-To compensate for the following scriptcs and NuGet issue [`https://github.com/scriptcs/scriptcs/issues/511`](https://github.com/scriptcs/scriptcs/issues/511 "NuGet Package installation issue with package.config and targetFramework") you will need to manually edit the packages.config file and add `targetFramework="portable-net45+sl50+wp80+win"` to the following:
-
-- Microsoft.WindowsAzure.Management
-- Microsoft.WindowsAzure.Management.Compute
-- Microsoft.WindowsAzure.Management.Libraries
-- Microsoft.WindowsAzure.Management.Storage
-- Microsoft.WindowsAzure.Management.VirtualNetworks
-- Microsoft.WindowsAzure.Management.WebSites 
-
-Your packages.config file should look as follows:
-
-    <?xml version="1.0" encoding="utf-8"?>
-    <packages>
-      ...
-      <package id="Microsoft.WindowsAzure.Management" version="0.9.1-preview" targetFramework="portable-net45+sl50+wp80+win" />
-      <package id="Microsoft.WindowsAzure.Management.Compute" version="0.9.2-preview" targetFramework="portable-net45+sl50+wp80+win" />
-      <package id="Microsoft.WindowsAzure.Management.Libraries" version="0.9.1-preview" targetFramework="portable-net45+sl50+wp80+win" />
-      <package id="Microsoft.WindowsAzure.Management.Storage" version="0.9.0-preview" targetFramework="portable-net45+sl50+wp80+win" />
-      <package id="Microsoft.WindowsAzure.Management.VirtualNetworks" version="0.9.0-preview" targetFramework="portable-net45+sl50+wp80+win" />
-      <package id="Microsoft.WindowsAzure.Management.WebSites" version="0.9.0-preview" targetFramework="portable-net45+sl50+wp80+win" />
-      ...
-    </packages>
-
 # Usage #
 
 Obtain a reference to the Script Pack.
@@ -51,14 +30,27 @@ Obtain a reference to the Script Pack.
 Obtain a reference to the various management classes.
 
 	var infrastructureManagement = waml.InfrastructureManagement;
+	var computeManagement = waml.ComputeManagement;
+	var monitoringManagement = waml.MonitoringManagement;
+	var schedulerManagement = waml.SchedulerManagement;
     var storageManagement = waml.StorageManagement;
-    var computeManagement = waml.ComputeManagement;
     var websiteManagement = waml.WebSiteManagement;
 	var virtualNetworkManagement = waml.VirtualNetworkManagement;
 
 Create a client. This will wrap the Windows Azure Service Management REST APIs.
 
-	var client = storageManagement.CreateClient()
+	var infrastructureManagementClient = infrastructureManagement.CreateClient();
+	var computeManagementClient = computeManagement.CreateClient();
+	var schedulerManagementClient = schedulerManagement.CreateClient();
+	var storageManagementClient = storageManagement.CreateClient();
+	var websiteManagementClient = websiteManagement.CreateClient();
+	var virtualNetworkManagementClient = virtualNetworkManagement.CreateClient();
+
+The creation of a Monitoring Management client is slightly different.
+
+	var alertsManagementClient = monitoringManagement.Alerts.CreateClient();
+	var autoscaleManagementClient = monitoringManagement.Autoscale.CreateClient();
+	var metricsManagementClient = monitoringManagement.Metrics.CreateClient();
 
 The following is an example for interacting with Storage Accounts via the Storage Management class. If the name **mystorageaccount** is available, the storage account is created. A list of all storage accounts in the subscription is then produced.
 

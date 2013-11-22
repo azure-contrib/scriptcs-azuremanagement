@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>ScriptCs.AzureManagement</id>
-    <version>0.1.0-preview</version>
+    <version>0.2.0-preview</version>
     <authors>Paul Bouwer</authors>
     <owners>Paul Bouwer</owners>
     <licenseUrl>https://github.com/paulbouwer/scriptcs-azuremanagement/blob/master/LICENSE</licenseUrl>
@@ -14,6 +14,8 @@
 Provides the following:
 - Infrastructure Management (Locations, Credentials, Subscriptions, Certificates)
 - Compute Management (Hosted Services, Deployments, Virtual Machines, Virtual Machine Images &amp; Disks)
+- Monitoring Management (Alerts, Autoscale, Metrics)
+- Scheduler Management (Jobs)
 - Storage Management (Storage Accounts)
 - WebSite Management (Web Sites, Web Site Publish Profiles, Usage Metrics, Repositories)
 - Virtual Network Management (Networks, Gateways)</description>
@@ -21,14 +23,22 @@ Provides the following:
     <tags>WindowsAzure management csx scriptcs</tags>
     <dependencies>
       <dependency id="Common.Logging" version="2.1.2" />
-      <dependency id="ScriptCs.Contracts" version="0.8.1" />
-      <dependency id="Microsoft.WindowsAzure.Management.Libraries" version="0.9.0-preview" />
+      <dependency id="ScriptCs.Contracts" version="0.8.1" />      
+      <dependency id="Microsoft.WindowsAzure.Management" version="0.9.2-preview" />
+      <dependency id="Microsoft.WindowsAzure.Management.Compute" version="0.9.3-preview" />      
+      <dependency id="Microsoft.WindowsAzure.Management.Monitoring" version="0.9.0-preview" />
+      <dependency id="Microsoft.WindowsAzure.Management.Scheduler" version="0.9.2-preview" />
+      <dependency id="Microsoft.WindowsAzure.Management.Storage" version="0.9.1-preview" />
+      <dependency id="Microsoft.WindowsAzure.Management.VirtualNetworks" version="0.9.1-preview" />
+      <dependency id="Microsoft.WindowsAzure.Management.WebSites" version="0.9.1-preview" />
     </dependencies>
   </metadata>
   <files>
     <file src="..\src\ScriptCs.AzureManagement.ScriptPack\bin\Debug\ScriptCs.AzureManagement.Common.dll" target="lib\net45" />
     <file src="..\src\ScriptCs.AzureManagement.ScriptPack\bin\Debug\ScriptCs.AzureManagement.Compute.dll" target="lib\net45" />
     <file src="..\src\ScriptCs.AzureManagement.ScriptPack\bin\Debug\ScriptCs.AzureManagement.Infrastructure.dll" target="lib\net45" />
+    <file src="..\src\ScriptCs.AzureManagement.ScriptPack\bin\Debug\ScriptCs.AzureManagement.Monitoring.dll" target="lib\net45" />
+    <file src="..\src\ScriptCs.AzureManagement.ScriptPack\bin\Debug\ScriptCs.AzureManagement.Scheduler.dll" target="lib\net45" />
     <file src="..\src\ScriptCs.AzureManagement.ScriptPack\bin\Debug\ScriptCs.AzureManagement.ScriptPack.dll" target="lib\net45" />
     <file src="..\src\ScriptCs.AzureManagement.ScriptPack\bin\Debug\ScriptCs.AzureManagement.Storage.dll" target="lib\net45" />
     <file src="..\src\ScriptCs.AzureManagement.ScriptPack\bin\Debug\ScriptCs.AzureManagement.VirtualNetwork.dll" target="lib\net45" />
