@@ -1,12 +1,12 @@
 var waml = Require<AzureManagement>();
 
 var storageManagement = waml.StorageManagement;
-using (var client = storageManagement.CreateClient())
+using (var storageClient = storageManagement.CreateClient())
 {
-    var checkNameResponse = client.StorageAccounts.CheckNameAvailability("mystorageaccount");
+    var checkNameResponse = storageClient.StorageAccounts.CheckNameAvailability("mystorageaccount");
     if (checkNameResponse.IsAvailable)
     {
-      var createResult = client.StorageAccounts.Create(new StorageAccountCreateParameters
+      var createResult = storageClient.StorageAccounts.Create(new StorageAccountCreateParameters
       {
         ServiceName = "mystorageaccount",
         Location = LocationNames.SoutheastAsia

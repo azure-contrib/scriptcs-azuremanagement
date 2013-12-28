@@ -7,13 +7,15 @@ This [Script Pack](https://github.com/scriptcs/scriptcs/wiki) for [scriptcs](htt
 
 Provides the following:
 
-- Infrastructure Management (Locations, Credentials, Subscriptions, Certificates)
-- Compute Management (Hosted Services, Deployments, Virtual Machines, Virtual Machine Images & Disks)
-- Monitoring Management (Alerts, Autoscale, Metrics)
-- Scheduler Management (Jobs)
+- Infrastructure Management (Affinity Groups, Locations, Management Certificates, Subscriptions)
+- Compute Management (Deployments, Hosted/Cloud Services, Operating Systems, Service Certificates, Virtual Machines, Virtual Machine Images & Disks)
+- Monitoring Management (Alerts - Incidents, Rules)
+- Monitoring Management (Autoscale - Settings)
+- Monitoring Management (Metrics - Definitions, Settings, Values)
+- Scheduler Management (Jobs, Job Collections)
 - Storage Management (Storage Accounts)
-- WebSite Management (Web Sites, Web Site Publish Profiles, Usage Metrics, Repositories)
-- Virtual Network Management (Networks, Gateways)
+- Virtual Network Management (Client Root Certificates, Gateways, Networks, Reserved IPs)
+- WebSite Management (Server Farms, Web Sites, Web Spaces)
 
 # Installation #
 
@@ -34,8 +36,8 @@ Obtain a reference to the various management classes.
 	var monitoringManagement = waml.MonitoringManagement;
 	var schedulerManagement = waml.SchedulerManagement;
     var storageManagement = waml.StorageManagement;
-    var websiteManagement = waml.WebSiteManagement;
 	var virtualNetworkManagement = waml.VirtualNetworkManagement;
+    var websiteManagement = waml.WebSiteManagement;	
 
 Create a client. This will wrap the Windows Azure Service Management REST APIs.
 
@@ -43,9 +45,9 @@ Create a client. This will wrap the Windows Azure Service Management REST APIs.
 	var computeManagementClient = computeManagement.CreateClient();
 	var schedulerManagementClient = schedulerManagement.CreateClient();
 	var storageManagementClient = storageManagement.CreateClient();
-	var websiteManagementClient = websiteManagement.CreateClient();
 	var virtualNetworkManagementClient = virtualNetworkManagement.CreateClient();
-
+	var websiteManagementClient = websiteManagement.CreateClient();
+	
 The creation of a Monitoring Management client is slightly different.
 
 	var alertsManagementClient = monitoringManagement.Alerts.CreateClient();
