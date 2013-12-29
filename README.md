@@ -33,20 +33,26 @@ Obtain a reference to the Script Pack.
     var waml = Require<AzureManagement>();
 
 Obtain a reference to the various management classes.
-
-	var infrastructureManagement = waml.InfrastructureManagement;
+	
 	var computeManagement = waml.ComputeManagement;
+	var infrastructureManagement = waml.InfrastructureManagement;
+	var mediaManagement = waml.MediaManagement;
 	var monitoringManagement = waml.MonitoringManagement;
 	var schedulerManagement = waml.SchedulerManagement;
+	var serviceBusManagement = waml.ServiceBusManagement;
+	var sqlManagement = waml.SqlManagement;
     var storageManagement = waml.StorageManagement;
 	var virtualNetworkManagement = waml.VirtualNetworkManagement;
     var websiteManagement = waml.WebSiteManagement;
 
 Create a client. This will wrap the Windows Azure Service Management REST APIs.
-
-	var infrastructureManagementClient = infrastructureManagement.CreateClient();
+	
 	var computeManagementClient = computeManagement.CreateClient();
+	var infrastructureManagementClient = infrastructureManagement.CreateClient();
+	var mediaManagementClient = mediaManagement.CreateClient();
 	var schedulerManagementClient = schedulerManagement.CreateClient();
+	var serviceBusManagementClient = serviceBusManagement.CreateClient();
+	var sqlManagementClient = sqlManagement.CreateClient();
 	var storageManagementClient = storageManagement.CreateClient();
 	var virtualNetworkManagementClient = virtualNetworkManagement.CreateClient();
 	var websiteManagementClient = websiteManagement.CreateClient();
