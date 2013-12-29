@@ -31,6 +31,8 @@ namespace ScriptCs.AzureManagement.ScriptPack
         "Microsoft.WindowsAzure.Management.Scheduler.Models",
         "Microsoft.WindowsAzure.Management.ServiceBus",
         "Microsoft.WindowsAzure.Management.ServiceBus.Models",
+        "Microsoft.WindowsAzure.Management.Sql.Models",
+        "Microsoft.WindowsAzure.Management.Sql",
         "Microsoft.WindowsAzure.Management.Storage.Models",
         "Microsoft.WindowsAzure.Management.Storage",
         "Microsoft.WindowsAzure.Management.VirtualNetworks.Models",
