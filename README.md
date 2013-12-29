@@ -7,12 +7,15 @@ This [Script Pack](https://github.com/scriptcs/scriptcs/wiki) for [scriptcs](htt
 
 Provides the following:
 
-- Infrastructure Management (Affinity Groups, Locations, Management Certificates, Subscriptions)
 - Compute Management (Deployments, Hosted/Cloud Services, Operating Systems, Service Certificates, Virtual Machines, Virtual Machine Images & Disks)
+- Infrastructure Management (Affinity Groups, Locations, Management Certificates, Subscriptions)
+- Media Management (Accounts)
 - Monitoring Management (Alerts - Incidents, Rules)
 - Monitoring Management (Autoscale - Settings)
 - Monitoring Management (Metrics - Definitions, Settings, Values)
 - Scheduler Management (Jobs, Job Collections)
+- Service Bus Management (Namespaces, Notification Hubs, Queues, Relays, Topics)
+- Sql Management (Dac, Database Operations, Databases, Firewall Rule, Servers)
 - Storage Management (Storage Accounts)
 - Virtual Network Management (Client Root Certificates, Gateways, Networks, Reserved IPs)
 - WebSite Management (Server Farms, Web Sites, Web Spaces)
@@ -37,7 +40,7 @@ Obtain a reference to the various management classes.
 	var schedulerManagement = waml.SchedulerManagement;
     var storageManagement = waml.StorageManagement;
 	var virtualNetworkManagement = waml.VirtualNetworkManagement;
-    var websiteManagement = waml.WebSiteManagement;	
+    var websiteManagement = waml.WebSiteManagement;
 
 Create a client. This will wrap the Windows Azure Service Management REST APIs.
 
@@ -47,7 +50,7 @@ Create a client. This will wrap the Windows Azure Service Management REST APIs.
 	var storageManagementClient = storageManagement.CreateClient();
 	var virtualNetworkManagementClient = virtualNetworkManagement.CreateClient();
 	var websiteManagementClient = websiteManagement.CreateClient();
-	
+
 The creation of a Monitoring Management client is slightly different.
 
 	var alertsManagementClient = monitoringManagement.Alerts.CreateClient();
@@ -73,16 +76,16 @@ The following is an example for interacting with Storage Accounts via the Storag
         }
     }
 
-Both synchronous and asynchronous versions of the methods are available. Since async/await is not yet available via Roslyn (and scriptcs) you will have to use the Task based methods to work with the asynchronous methods. 
+Both synchronous and asynchronous versions of the methods are available. Since async/await is not yet available via Roslyn (and scriptcs) you will have to use the Task based methods to work with the asynchronous methods.
 
     using (var client = storageManagement.CreateClient())
-    {	
+    {
     	var response1 = client.StorageAccounts.CheckNameAvailabilityAsync("mystorageaccount").Result;
     	Console.WriteLine(String.Format("{0}: {1}", response1.IsAvailable, response1.Reason));
-    	
+
     	var response2 = client.StorageAccounts.CheckNameAvailability("mystorageaccount");
     	Console.WriteLine(String.Format("{0}: {1}", response2.IsAvailable, response2.Reason));
-    
+
     	var task = client.StorageAccounts.CheckNameAvailabilityAsync("mystorageaccount");
     	task.ContinueWith(t => { Console.WriteLine(String.Format("{0}: {1}", t.Result.IsAvailable, t.Result.Reason)); }).Wait();
     }

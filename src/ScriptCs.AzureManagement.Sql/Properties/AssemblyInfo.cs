@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ScriptCs.AzureManagement.Compute")]
+[assembly: AssemblyTitle("ScriptCs.AzureManagement.Sql")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ScriptCs.AzureManagement.Compute")]
+[assembly: AssemblyProduct("ScriptCs.AzureManagement.Sql")]
 [assembly: AssemblyCopyright("Copyright © Paul Bouwer")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a90c8d97-2a9b-431c-8ff5-a1d2b02e2568")]
+[assembly: Guid("2749cba1-6fa8-4f63-9f01-ceb5f958c0b5")]
 
 // Version information for an assembly consists of the following four values:
 //

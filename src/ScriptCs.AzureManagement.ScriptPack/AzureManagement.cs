@@ -7,8 +7,11 @@ using ScriptCs.AzureManagement.Common.Credentials;
 using ScriptCs.AzureManagement.Common.TracingInterceptors;
 using ScriptCs.AzureManagement.Compute;
 using ScriptCs.AzureManagement.Infrastructure;
+using ScriptCs.AzureManagement.Media;
 using ScriptCs.AzureManagement.Monitoring;
 using ScriptCs.AzureManagement.Scheduler;
+using ScriptCs.AzureManagement.ServiceBus;
+using ScriptCs.AzureManagement.Sql;
 using ScriptCs.AzureManagement.Storage;
 using ScriptCs.AzureManagement.VirtualNetwork;
 using ScriptCs.AzureManagement.WebSite;
@@ -24,8 +27,11 @@ namespace ScriptCs.AzureManagement.ScriptPack
 
     private Lazy<ComputeManagement> _computeManagement;
     private Lazy<InfrastructureManagement> _infrastructureManagement;
+    private Lazy<MediaManagement> _mediaManagement;
     private Lazy<MonitoringManagement> _monitoringManagement;
     private Lazy<SchedulerManagement> _schedulerManagement;
+    private Lazy<ServiceBusManagement> _serviceBusManagement;
+    private Lazy<SqlManagement> _sqlManagement;
     private Lazy<StorageManagement> _storageManagement;
     private Lazy<VirtualNetworkManagement> _virtualNetworkManagement;
     private Lazy<WebSiteManagement> _webSiteManagement;    
@@ -50,23 +56,29 @@ namespace ScriptCs.AzureManagement.ScriptPack
 
       var managementContext = new ManagementContext
       {
-        Logger = _logger,
+        Logger            = _logger,
         CredentialManager = _credentialManager
       };
 
-      _computeManagement = new Lazy<ComputeManagement>(() => new ComputeManagement(managementContext));
+      _computeManagement        = new Lazy<ComputeManagement>(() => new ComputeManagement(managementContext));
       _infrastructureManagement = new Lazy<InfrastructureManagement>(() => new InfrastructureManagement(managementContext));
-      _monitoringManagement = new Lazy<MonitoringManagement>(() => new MonitoringManagement(managementContext));
-      _schedulerManagement = new Lazy<SchedulerManagement>(() => new SchedulerManagement(managementContext));
-      _storageManagement = new Lazy<StorageManagement>(() => new StorageManagement(managementContext));
+      _monitoringManagement     = new Lazy<MonitoringManagement>(() => new MonitoringManagement(managementContext));
+      _mediaManagement          = new Lazy<MediaManagement>(() => new MediaManagement(managementContext));
+      _schedulerManagement      = new Lazy<SchedulerManagement>(() => new SchedulerManagement(managementContext));
+      _serviceBusManagement     = new Lazy<ServiceBusManagement>(() => new ServiceBusManagement(managementContext));
+      _sqlManagement            = new Lazy<SqlManagement>(() => new SqlManagement(managementContext));
+      _storageManagement        = new Lazy<StorageManagement>(() => new StorageManagement(managementContext));
       _virtualNetworkManagement = new Lazy<VirtualNetworkManagement>(() => new VirtualNetworkManagement(managementContext));
-      _webSiteManagement = new Lazy<WebSiteManagement>(() => new WebSiteManagement(managementContext));      
+      _webSiteManagement        = new Lazy<WebSiteManagement>(() => new WebSiteManagement(managementContext));      
     }
 
     public ComputeManagement ComputeManagement { get { return _computeManagement.Value; } }
     public InfrastructureManagement InfrastructureManagement { get { return _infrastructureManagement.Value; } }
+    public MediaManagement MediaManagement { get { return _mediaManagement.Value; } }
     public MonitoringManagement MonitoringManagement { get { return _monitoringManagement.Value; } }
     public SchedulerManagement SchedulerManagement { get { return _schedulerManagement.Value; } }
+    public ServiceBusManagement ServiceBusManagement { get { return _serviceBusManagement.Value; } }
+    public SqlManagement SqlManagement { get { return _sqlManagement.Value; } }
     public StorageManagement StorageManagement { get { return _storageManagement.Value; } }
     public VirtualNetworkManagement VirtualNetworkManagement { get { return _virtualNetworkManagement.Value; } }
     public WebSiteManagement WebSiteManagement { get { return _webSiteManagement.Value; } }
