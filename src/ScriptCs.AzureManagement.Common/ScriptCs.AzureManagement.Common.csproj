@@ -80,8 +80,10 @@
     <Compile Include="Configuration\IConfigurationProvider.cs" />
     <Compile Include="Configuration\JsonFileConfigurationProvider.cs" />
     <Compile Include="Configuration\ScriptArgsConfigurationProvider.cs" />
+    <Compile Include="Credentials\CredentialException.cs" />
     <Compile Include="Credentials\CredentialManager.cs" />
     <Compile Include="Credentials\ICredentialManager.cs" />
+    <Compile Include="Guard.cs" />
     <Compile Include="ManagementContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TracingInterceptors\HttpTracingInterceptor.cs" />

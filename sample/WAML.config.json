@@ -1,11 +1,21 @@
 {
 	Subscriptions : [
 		{
-			Name : "[SUBSCRIPTION_NAME]",
-			SubscriptionId : "[SUBSCRIPTION_ID]",
+			Name : "[SUBSCRIPTION1_NAME]",
+			SubscriptionId : "[SUBSCRIPTION1_ID]",
 			ManagementCertificate:
 			{
-				Thumbprint : "[MANAGEMENTCERTIFICATE_THUMBPRINT]"
+				Thumbprint : "[MANAGEMENTCERTIFICATE1_THUMBPRINT]",
+				Base64Data : "[MANAGEMENTCERTIFICATE1_BASE64]"
+			}
+		},
+		{
+			Name : "[SUBSCRIPTION2_NAME]",
+			SubscriptionId : "[SUBSCRIPTION2_ID]",
+			ManagementCertificate:
+			{
+				Thumbprint : "[MANAGEMENTCERTIFICATE2_THUMBPRINT]",
+				Base64Data : "[MANAGEMENTCERTIFICATE2_BASE64]"
 			}
 		}
 	]

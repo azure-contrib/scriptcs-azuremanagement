@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using Newtonsoft.Json;
 
 namespace ScriptCs.AzureManagement.Common.Configuration
@@ -10,19 +9,19 @@ namespace ScriptCs.AzureManagement.Common.Configuration
 
     public JsonFileConfigurationProvider(string fileName)
     {
-      _fileName = fileName;
+      _fileName = Path.GetFullPath(fileName);
     }
 
     public Config PopulateConfiguration(Config config)
     {
       string json;
-      var fileName = Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + _fileName;
-      if (!File.Exists(fileName))
+      
+      if (!File.Exists(_fileName))
       {
-        throw new FileNotFoundException(string.Format("The configuration file could not be found at '{0}'.", fileName));
+        throw new FileNotFoundException(string.Format("The configuration file could not be found at '{0}'.", _fileName));
       }
 
-      using (var r = new StreamReader(fileName))
+      using (var r = new StreamReader(_fileName))
       {
         json = r.ReadToEnd();
       }

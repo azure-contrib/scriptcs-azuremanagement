@@ -19,10 +19,14 @@ using ScriptCs.Contracts;
 
 namespace ScriptCs.AzureManagement.ScriptPack
 {
-  public class AzureManagement : IScriptPackContext
+  public partial class AzureManagement : IScriptPackContext
   {
-    private ILog _logger;
-    private ICredentialManager _credentialManager;
+    private readonly ILog _logger;
+    private readonly ICredentialManager _credentialManager;
+    private readonly IConfigurationManager _configurationManager;
+
+    private readonly string[] _scriptArgs;
+
     private HttpTracingInterceptor _httpTracingInterceptor;
 
     private Lazy<ComputeManagement> _computeManagement;
@@ -38,19 +42,20 @@ namespace ScriptCs.AzureManagement.ScriptPack
 
     public AzureManagement(AzureManagementContext context)
     {
-      Initialise(context);
+      _logger = context.Logger;
+      _scriptArgs = context.ScriptArgs;
+
+      _configurationManager = new ConfigurationManager(_logger);
+      _credentialManager = new CredentialManager(_logger);
     }
 
-    private void Initialise(AzureManagementContext context)
-    {
-      var config = new ConfigurationManager();
-      config.AddProvider(new JsonFileConfigurationProvider("WAML.config.json"));
-      config.AddProvider(new ScriptArgsConfigurationProvider(context.ScriptArgs));      
-      config.Initialise();
+    private AzureManagement InitialiseScriptPack()
+    {      
+      _configurationManager.AddProvider(new ScriptArgsConfigurationProvider(_scriptArgs));
+      _configurationManager.Initialise();
 
-      _logger = context.Logger;
-      _credentialManager = new CredentialManager();
-
+      _credentialManager.Initialise();
+      
       _httpTracingInterceptor = new HttpTracingInterceptor(_logger, isEnabled: ConfigurationManager.Config.HttpTraceEnabled);
       CloudContext.Configuration.Tracing.AddTracingInterceptor(_httpTracingInterceptor);
 
@@ -59,7 +64,6 @@ namespace ScriptCs.AzureManagement.ScriptPack
         Logger            = _logger,
         CredentialManager = _credentialManager
       };
-
       _computeManagement        = new Lazy<ComputeManagement>(() => new ComputeManagement(managementContext));
       _infrastructureManagement = new Lazy<InfrastructureManagement>(() => new InfrastructureManagement(managementContext));
       _monitoringManagement     = new Lazy<MonitoringManagement>(() => new MonitoringManagement(managementContext));
@@ -69,7 +73,9 @@ namespace ScriptCs.AzureManagement.ScriptPack
       _sqlManagement            = new Lazy<SqlManagement>(() => new SqlManagement(managementContext));
       _storageManagement        = new Lazy<StorageManagement>(() => new StorageManagement(managementContext));
       _virtualNetworkManagement = new Lazy<VirtualNetworkManagement>(() => new VirtualNetworkManagement(managementContext));
-      _webSiteManagement        = new Lazy<WebSiteManagement>(() => new WebSiteManagement(managementContext));      
+      _webSiteManagement        = new Lazy<WebSiteManagement>(() => new WebSiteManagement(managementContext));
+
+      return this;
     }
 
     public ComputeManagement ComputeManagement { get { return _computeManagement.Value; } }
@@ -79,9 +85,15 @@ namespace ScriptCs.AzureManagement.ScriptPack
     public SchedulerManagement SchedulerManagement { get { return _schedulerManagement.Value; } }
     public ServiceBusManagement ServiceBusManagement { get { return _serviceBusManagement.Value; } }
     public SqlManagement SqlManagement { get { return _sqlManagement.Value; } }
-    public StorageManagement StorageManagement { get { return _storageManagement.Value; } }
+    public StorageManagement StorageManagement { get { return _storageManagement.Value; } } 
     public VirtualNetworkManagement VirtualNetworkManagement { get { return _virtualNetworkManagement.Value; } }
     public WebSiteManagement WebSiteManagement { get { return _webSiteManagement.Value; } }
+
+    public string ActiveSubscription
+    {
+      get { return _credentialManager.ActiveSubscription.Name ?? "Unknown Subscription"; }
+      set { _credentialManager.SetActiveSubscription(value); }
+    }
 
     public bool HttpTraceEnabled
     {

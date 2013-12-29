@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>ScriptCs.AzureManagement</id>
-    <version>0.2.0-preview</version>
+    <version>0.3.0-preview</version>
     <authors>Paul Bouwer</authors>
     <owners>Paul Bouwer</owners>
     <licenseUrl>https://github.com/paulbouwer/scriptcs-azuremanagement/blob/master/LICENSE</licenseUrl>
@@ -12,7 +12,7 @@
     <summary>This Script Pack for scriptcs provides management of Windows Azure resources via the Windows Azure Management Libraries.</summary>
     <description>This Script Pack for scriptcs provides management of Windows Azure resources via the Windows Azure Management Libraries.
 Provides the following:
-- Compute Management (Deployments, Hosted/Cloud Services, Operating Systems, Service Certificates, Virtual Machines, Virtual Machine Images & Disks)
+- Compute Management (Deployments, Hosted/Cloud Services, Operating Systems, Service Certificates, Virtual Machines, Virtual Machine Images &amp; Disks)
 - Infrastructure Management (Affinity Groups, Locations, Management Certificates, Subscriptions)
 - Media Management (Accounts)
 - Monitoring Management (Alerts - Incidents, Rules)

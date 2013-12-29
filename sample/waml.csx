@@ -1,4 +1,8 @@
-var waml = Require<AzureManagement>();
+var waml = Require<AzureManagement>()
+  .LoadConfigFromJsonFile("WAML.config.json")
+  .SetActiveSubscription("SUBSCRIPTION1_NAME")
+  .Initialise();
+
 var storageAccountName = "mystorageaccount";
 
 var storageManagement = waml.StorageManagement;

@@ -30,7 +30,13 @@ Install the nuget package by running
 
 Obtain a reference to the Script Pack.
 
-    var waml = Require<AzureManagement>();
+    var waml = Require<AzureManagement>()
+		.LoadConfigFromJsonFile("WAML.config.json")
+		.Initialise();
+
+The `WAML.config.json` file contains Subscription and Credential configuration information. See the [Configuration](#Configuration) section for more detailed information.
+
+When the file is referenced by just the file name it is expected to be found in the same folder as your script. You may also specify a fully qualified path to the file. You may name the configuration file anything - it does not have to be called `WAML.config.json`.
 
 Obtain a reference to the various management classes.
 
@@ -98,25 +104,60 @@ Both synchronous and asynchronous versions of the methods are available. Since a
 
 # Configuration #
 
-To configure the credentials and subscription information, place a WAML.config.json in the same folder as your script that contains the following:
+To configure the Subscription and Credential information, create a config file with the following json:
 
 	{
 		Subscriptions : [
 			{
-				Name : "Azure Subscription - MSDN",
+				Name : "MSDN Premium",
 				SubscriptionId : "4dbddf3c-82ab-44b1-851a-75cab776d13d",
 				ManagementCertificate:
 				{
-					Thumbprint : "A4F7C2B685534A9EB7A4E24615E22E395F5F839A"
+					Thumbprint : "A4F7C2B685534A9EB7A4E24615E22E395F5F839A",
+					Base64Data : "MIIKBAIBAzCCCcQGCSqGSIb3DQEHA..."
 				}
-			}
+			},
+			{
+				Name : "Personal",
+				SubscriptionId : "4dbddf3c-82ab-44b1-851a-75cab776d13e",
+				ManagementCertificate:
+				{
+					Thumbprint : "A4F7C2B685534A9EB7A4E24615E22E395F5F839B",
+					Base64Data : "MIIKBAIBAzCCCcQGCSqGSIb3DQEHB..."
+				}
+			},
 		]
 	}
 
-At the moment a single subscription and the thumprint to the management certificate in your local certificate store are required. But more options are on the way ...
+One or more Subscriptons can be configured via the config file. You can also specify either a Thumbprint for the Management Certificate associated with the Subscription or the Base64 encoded certificate data. If you specify both, the Thumbprint has a higher priority. 
+
+# Subscription and Credential Selection
+
+If no Subscription is specified when the Script Pack is required, then the first Subscription in the configuration will be used. So in the following scenario, the `MSDN Premium` Subscription from the config in the [Configuration](#Configuration) section will be used.
+
+    var waml = Require<AzureManagement>()
+		.LoadConfigFromJsonFile("WAML.config.json")
+		.Initialise();
+
+If a Subscription is specified when the Script Pack is required, then that Subscription in the configuration will be used. So in the following scenario, the `Personal` Subscription from the config in the [Configuration](#Configuration) section will be used.
+
+    var waml = Require<AzureManagement>()
+		.LoadConfigFromJsonFile("WAML.config.json")
+		.SetActiveSubscription("Personal")
+		.Initialise();
+
+At any time in your script (`.csx`) you can change the active Subscription by using the `ActiveSubscription` property on the Script Pack reference. The following will change the active Subscription to `Personal`:
+
+	waml.ActiveSubscription("Personal");
 
 # Tracing #
 
 If you would like to see the REST API HTTP traffic for debugging or interest, then add a `-HttpTraceEnabled` switch when calling your script.
 
     scriptcs waml.csx -- -HttpTraceEnabled
+
+Ensure that you add the `--` before the `-HttpTraceEnabled` switch. This is a marker to separate scriptcs (`scriptcs.exe`) arguments from script (`.csx`) arguments.
+
+# Sample #
+
+A example of how to use the Script Pack is available in the ``sample`` folder. Remember to configure the json config file with your Azure Subscription details.

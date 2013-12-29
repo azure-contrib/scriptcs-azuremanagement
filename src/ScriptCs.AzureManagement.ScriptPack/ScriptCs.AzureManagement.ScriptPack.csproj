@@ -73,9 +73,11 @@
     <Compile Include="AzureManagement.cs" />
     <Compile Include="AzureManagementContext.cs" />
     <Compile Include="AzureManagementScriptPack.cs" />
+    <Compile Include="IFluentConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AzureManagement.Fluent.cs" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
