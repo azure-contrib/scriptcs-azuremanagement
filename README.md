@@ -34,7 +34,7 @@ Obtain a reference to the Script Pack.
 		.LoadConfigFromJsonFile("WAML.config.json")
 		.Initialise();
 
-The `WAML.config.json` file contains Subscription and Credential configuration information. See the [Configuration](#Configuration) section for more detailed information.
+The `WAML.config.json` file contains Subscription and Credential configuration information. See the [Configuration](#configuration) section for more detailed information.
 
 When the file is referenced by just the file name it is expected to be found in the same folder as your script. You may also specify a fully qualified path to the file. You may name the configuration file anything - it does not have to be called `WAML.config.json`.
 
@@ -133,13 +133,13 @@ One or more Subscriptons can be configured via the config file. You can also spe
 
 # Subscription and Credential Selection
 
-If no Subscription is specified when the Script Pack is required, then the first Subscription in the configuration will be used. So in the following scenario, the `MSDN Premium` Subscription from the config in the [Configuration](#Configuration) section will be used.
+If no Subscription is specified when the Script Pack is required, then the first Subscription in the configuration will be used. So in the following scenario, the `MSDN Premium` Subscription from the config in the [Configuration](#configuration) section will be used.
 
     var waml = Require<AzureManagement>()
 		.LoadConfigFromJsonFile("WAML.config.json")
 		.Initialise();
 
-If a Subscription is specified when the Script Pack is required, then that Subscription in the configuration will be used. So in the following scenario, the `Personal` Subscription from the config in the [Configuration](#Configuration) section will be used.
+If a Subscription is specified when the Script Pack is required, then that Subscription in the configuration will be used. So in the following scenario, the `Personal` Subscription from the config in the [Configuration](#configuration) section will be used.
 
     var waml = Require<AzureManagement>()
 		.LoadConfigFromJsonFile("WAML.config.json")
