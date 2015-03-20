@@ -20,7 +20,7 @@ namespace ScriptCs.AzureManagement.Infrastructure
     public ManagementClient CreateClient()
     {
       var credentials = _credentialManager.GetManagementCredentials();
-      return CloudContext.Clients.CreateManagementClient(credentials);
+      return new ManagementClient(credentials);
     }
   }
 }

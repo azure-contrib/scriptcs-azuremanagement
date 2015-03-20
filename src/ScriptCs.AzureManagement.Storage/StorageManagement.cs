@@ -19,8 +19,8 @@ namespace ScriptCs.AzureManagement.Storage
 
     public StorageManagementClient CreateClient()
     {
-      var credentials = _credentialManager.GetManagementCredentials();      
-      return CloudContext.Clients.CreateStorageManagementClient(credentials);
+      var credentials = _credentialManager.GetManagementCredentials();
+      return new StorageManagementClient(credentials);
     }
   }
 }

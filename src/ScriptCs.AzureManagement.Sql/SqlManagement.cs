@@ -19,8 +19,8 @@ namespace ScriptCs.AzureManagement.Sql
 
     public SqlManagementClient CreateClient() 
     {
-      var credentials = _credentialManager.GetManagementCredentials();      
-      return CloudContext.Clients.CreateSqlManagementClient(credentials);
+      var credentials = _credentialManager.GetManagementCredentials();
+      return new SqlManagementClient(credentials);
     }
   }
 }

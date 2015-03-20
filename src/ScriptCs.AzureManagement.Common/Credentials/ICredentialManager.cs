@@ -1,4 +1,4 @@
-﻿using Microsoft.WindowsAzure;
+﻿using Microsoft.Azure;
 using ScriptCs.AzureManagement.Common.Configuration;
 
 namespace ScriptCs.AzureManagement.Common.Credentials

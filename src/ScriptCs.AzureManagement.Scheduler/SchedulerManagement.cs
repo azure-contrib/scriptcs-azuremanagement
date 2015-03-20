@@ -19,8 +19,8 @@ namespace ScriptCs.AzureManagement.Scheduler
 
     public SchedulerManagementClient CreateClient() 
     {
-      var credentials = _credentialManager.GetManagementCredentials();      
-      return CloudContext.Clients.CreateSchedulerManagementClient(credentials);
+      var credentials = _credentialManager.GetManagementCredentials();
+      return new SchedulerManagementClient(credentials);
     }
   }
 }

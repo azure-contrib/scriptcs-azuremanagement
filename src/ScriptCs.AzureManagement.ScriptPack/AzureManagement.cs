@@ -1,6 +1,4 @@
-﻿using System;
-using Common.Logging;
-using Microsoft.WindowsAzure;
+﻿using Common.Logging;
 using ScriptCs.AzureManagement.Common;
 using ScriptCs.AzureManagement.Common.Configuration;
 using ScriptCs.AzureManagement.Common.Credentials;
@@ -16,6 +14,7 @@ using ScriptCs.AzureManagement.Storage;
 using ScriptCs.AzureManagement.VirtualNetwork;
 using ScriptCs.AzureManagement.WebSite;
 using ScriptCs.Contracts;
+using System;
 
 namespace ScriptCs.AzureManagement.ScriptPack
 {
@@ -57,7 +56,8 @@ namespace ScriptCs.AzureManagement.ScriptPack
       _credentialManager.Initialise();
       
       _httpTracingInterceptor = new HttpTracingInterceptor(_logger, isEnabled: ConfigurationManager.Config.HttpTraceEnabled);
-      CloudContext.Configuration.Tracing.AddTracingInterceptor(_httpTracingInterceptor);
+      // CloudContext.Configuration.Tracing.AddTracingInterceptor(_httpTracingInterceptor);
+
 
       var managementContext = new ManagementContext
       {

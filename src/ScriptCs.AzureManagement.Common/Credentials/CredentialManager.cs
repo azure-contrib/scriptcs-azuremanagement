@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Common.Logging;
-using Microsoft.WindowsAzure;
 using ScriptCs.AzureManagement.Common.Configuration;
+using Microsoft.Azure;
 
 namespace ScriptCs.AzureManagement.Common.Credentials
 {

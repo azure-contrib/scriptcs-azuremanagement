@@ -1,5 +1,4 @@
 ﻿using Common.Logging;
-using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.Management.Compute;
 using ScriptCs.AzureManagement.Common;
 using ScriptCs.AzureManagement.Common.Credentials;
@@ -19,8 +18,8 @@ namespace ScriptCs.AzureManagement.Compute
 
     public ComputeManagementClient CreateClient() 
     {
-      var credentials = _credentialManager.GetManagementCredentials();      
-      return CloudContext.Clients.CreateComputeManagementClient(credentials);
+      var credentials = _credentialManager.GetManagementCredentials();
+      return new ComputeManagementClient(credentials);
     }
   }
 }
