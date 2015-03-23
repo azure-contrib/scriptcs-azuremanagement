@@ -15,8 +15,10 @@ namespace ScriptCs.AzureManagement.ScriptPack
       var namespaces = new[]
       {
         "System.Net",
-        "Microsoft.WindowsAzure.Management.Compute.Models",
+        "Microsoft.WindowsAzure.Management.Automation",
+        "Microsoft.WindowsAzure.Management.Automation.Models",
         "Microsoft.WindowsAzure.Management.Compute",
+        "Microsoft.WindowsAzure.Management.Compute.Models",
         "Microsoft.WindowsAzure.Management.MediaServices",
         "Microsoft.WindowsAzure.Management.MediaServices.Models",
         "Microsoft.WindowsAzure.Management.Models",

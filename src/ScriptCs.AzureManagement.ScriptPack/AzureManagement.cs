@@ -1,4 +1,5 @@
 ﻿using Common.Logging;
+using ScriptCs.AzureManagement.Automation;
 using ScriptCs.AzureManagement.Common;
 using ScriptCs.AzureManagement.Common.Configuration;
 using ScriptCs.AzureManagement.Common.Credentials;
@@ -29,6 +30,7 @@ namespace ScriptCs.AzureManagement.ScriptPack
 
     private HttpTracingInterceptor _httpTracingInterceptor;
 
+    private Lazy<AutomationManagement> _automationManagement;
     private Lazy<ComputeManagement> _computeManagement;
     private Lazy<InfrastructureManagement> _infrastructureManagement;
     private Lazy<MediaManagement> _mediaManagement;
@@ -66,6 +68,7 @@ namespace ScriptCs.AzureManagement.ScriptPack
         Logger            = _logger,
         CredentialManager = _credentialManager
       };
+      _automationManagement     = new Lazy<AutomationManagement>(() => new AutomationManagement(managementContext));
       _computeManagement        = new Lazy<ComputeManagement>(() => new ComputeManagement(managementContext));
       _infrastructureManagement = new Lazy<InfrastructureManagement>(() => new InfrastructureManagement(managementContext));
       _monitoringManagement     = new Lazy<MonitoringManagement>(() => new MonitoringManagement(managementContext));
@@ -76,11 +79,12 @@ namespace ScriptCs.AzureManagement.ScriptPack
       _storageManagement        = new Lazy<StorageManagement>(() => new StorageManagement(managementContext));
       _virtualNetworkManagement = new Lazy<VirtualNetworkManagement>(() => new VirtualNetworkManagement(managementContext));
       _trafficManagerManagement = new Lazy<TrafficManagerManagement>(() => new TrafficManagerManagement(managementContext));
-      _webSiteManagement = new Lazy<WebSiteManagement>(() => new WebSiteManagement(managementContext));
+      _webSiteManagement        = new Lazy<WebSiteManagement>(() => new WebSiteManagement(managementContext));
 
       return this;
     }
 
+    public AutomationManagement AutomationManagement { get { return _automationManagement.Value; } }
     public ComputeManagement ComputeManagement { get { return _computeManagement.Value; } }
     public InfrastructureManagement InfrastructureManagement { get { return _infrastructureManagement.Value; } }
     public MediaManagement MediaManagement { get { return _mediaManagement.Value; } }
