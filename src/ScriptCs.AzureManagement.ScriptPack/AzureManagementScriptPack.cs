@@ -19,6 +19,8 @@ namespace ScriptCs.AzureManagement.ScriptPack
         "Microsoft.WindowsAzure.Management.Automation.Models",
         "Microsoft.WindowsAzure.Management.Compute",
         "Microsoft.WindowsAzure.Management.Compute.Models",
+        "Microsoft.WindowsAzure.Management.ExpressRoute",
+        "Microsoft.WindowsAzure.Management.ExpressRoute.Models",
         "Microsoft.WindowsAzure.Management.MediaServices",
         "Microsoft.WindowsAzure.Management.MediaServices.Models",
         "Microsoft.WindowsAzure.Management.Models",

@@ -5,6 +5,7 @@ using ScriptCs.AzureManagement.Common.Configuration;
 using ScriptCs.AzureManagement.Common.Credentials;
 using ScriptCs.AzureManagement.Common.TracingInterceptors;
 using ScriptCs.AzureManagement.Compute;
+using ScriptCs.AzureManagement.ExpressRoute;
 using ScriptCs.AzureManagement.Infrastructure;
 using ScriptCs.AzureManagement.Media;
 using ScriptCs.AzureManagement.Monitoring;
@@ -41,6 +42,7 @@ namespace ScriptCs.AzureManagement.ScriptPack
     private Lazy<StorageManagement> _storageManagement;
     private Lazy<VirtualNetworkManagement> _virtualNetworkManagement;
     private Lazy<TrafficManagerManagement> _trafficManagerManagement;
+    private Lazy<ExpressRouteManagement> _expressRouteManagement;
     private Lazy<WebSiteManagement> _webSiteManagement;    
 
     public AzureManagement(AzureManagementContext context)
@@ -80,6 +82,7 @@ namespace ScriptCs.AzureManagement.ScriptPack
       _virtualNetworkManagement = new Lazy<VirtualNetworkManagement>(() => new VirtualNetworkManagement(managementContext));
       _trafficManagerManagement = new Lazy<TrafficManagerManagement>(() => new TrafficManagerManagement(managementContext));
       _webSiteManagement        = new Lazy<WebSiteManagement>(() => new WebSiteManagement(managementContext));
+      _expressRouteManagement   = new Lazy<ExpressRouteManagement>(() => new ExpressRouteManagement(managementContext));
 
       return this;
     }
@@ -96,6 +99,7 @@ namespace ScriptCs.AzureManagement.ScriptPack
     public VirtualNetworkManagement VirtualNetworkManagement { get { return _virtualNetworkManagement.Value; } }
     public TrafficManagerManagement TrafficManagerManagement { get { return _trafficManagerManagement.Value; } }
     public WebSiteManagement WebSiteManagement { get { return _webSiteManagement.Value; } }
+    public ExpressRouteManagement ExpressRouteManagement { get { return _expressRouteManagement.Value; } }
 
     public string ActiveSubscription
     {

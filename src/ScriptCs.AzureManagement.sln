@@ -38,6 +38,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptCs.AzureManagement.Tr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptCs.AzureManagement.Automation", "ScriptCs.AzureManagement.Automation\ScriptCs.AzureManagement.Automation.csproj", "{311904C9-E7BE-4831-9460-F5B02923D165}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptCs.AzureManagement.ExpressRoute", "ScriptCs.AzureManagement.ExpressRoute\ScriptCs.AzureManagement.ExpressRoute.csproj", "{46EB5550-969C-47ED-9847-1A0BEAC6A066}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,6 +102,10 @@ Global
 		{311904C9-E7BE-4831-9460-F5B02923D165}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{311904C9-E7BE-4831-9460-F5B02923D165}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{311904C9-E7BE-4831-9460-F5B02923D165}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46EB5550-969C-47ED-9847-1A0BEAC6A066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46EB5550-969C-47ED-9847-1A0BEAC6A066}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46EB5550-969C-47ED-9847-1A0BEAC6A066}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46EB5550-969C-47ED-9847-1A0BEAC6A066}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

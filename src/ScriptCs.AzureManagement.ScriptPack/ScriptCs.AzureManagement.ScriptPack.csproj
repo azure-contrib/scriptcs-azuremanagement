@@ -113,6 +113,10 @@
       <Project>{71E7CE6B-AE6E-4364-A623-60F69094EC3A}</Project>
       <Name>ScriptCs.AzureManagement.Compute</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ScriptCs.AzureManagement.ExpressRoute\ScriptCs.AzureManagement.ExpressRoute.csproj">
+      <Project>{46eb5550-969c-47ed-9847-1a0beac6a066}</Project>
+      <Name>ScriptCs.AzureManagement.ExpressRoute</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ScriptCs.AzureManagement.Infrastructure\ScriptCs.AzureManagement.Infrastructure.csproj">
       <Project>{5736647B-FC79-45C8-8BEC-3F4DB1D387E3}</Project>
       <Name>ScriptCs.AzureManagement.Infrastructure</Name>
