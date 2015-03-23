@@ -37,11 +37,13 @@ namespace ScriptCs.AzureManagement.ScriptPack
         "Microsoft.WindowsAzure.Management.Storage",
         "Microsoft.WindowsAzure.Management.Network.Models",
         "Microsoft.WindowsAzure.Management.Network",
+        "Microsoft.WindowsAzure.Management.TrafficManager",
+        "Microsoft.WindowsAzure.Management.TrafficManager.Models",
         "Microsoft.Azure.Management.WebSites.Models",
         "Microsoft.Azure.Management.WebSites",
         "Microsoft.WindowsAzure.Management",
         "Microsoft.WindowsAzure",
-        "Microsoft.WindowsAzure.Common",
+       // "Microsoft.WindowsAzure.Common",
       }.ToList();
 
       var references = new[]
@@ -60,8 +62,10 @@ namespace ScriptCs.AzureManagement.ScriptPack
     [ImportingConstructor]
     public AzureManagementScriptPack(ILog logger)
     {
-      _logger = logger;
+        _logger = logger;
     }
+
+    // public AzureManagementScriptPack() { _logger = new global::Common.Logging.Simple.NoOpLogger(); }
 
     public IScriptPackContext GetContext()
     {

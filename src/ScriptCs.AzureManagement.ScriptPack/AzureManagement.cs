@@ -11,6 +11,7 @@ using ScriptCs.AzureManagement.Scheduler;
 using ScriptCs.AzureManagement.ServiceBus;
 using ScriptCs.AzureManagement.Sql;
 using ScriptCs.AzureManagement.Storage;
+using ScriptCs.AzureManagement.TrafficManager;
 using ScriptCs.AzureManagement.VirtualNetwork;
 using ScriptCs.AzureManagement.WebSite;
 using ScriptCs.Contracts;
@@ -37,6 +38,7 @@ namespace ScriptCs.AzureManagement.ScriptPack
     private Lazy<SqlManagement> _sqlManagement;
     private Lazy<StorageManagement> _storageManagement;
     private Lazy<VirtualNetworkManagement> _virtualNetworkManagement;
+    private Lazy<TrafficManagerManagement> _trafficManagerManagement;
     private Lazy<WebSiteManagement> _webSiteManagement;    
 
     public AzureManagement(AzureManagementContext context)
@@ -73,7 +75,8 @@ namespace ScriptCs.AzureManagement.ScriptPack
       _sqlManagement            = new Lazy<SqlManagement>(() => new SqlManagement(managementContext));
       _storageManagement        = new Lazy<StorageManagement>(() => new StorageManagement(managementContext));
       _virtualNetworkManagement = new Lazy<VirtualNetworkManagement>(() => new VirtualNetworkManagement(managementContext));
-      _webSiteManagement        = new Lazy<WebSiteManagement>(() => new WebSiteManagement(managementContext));
+      _trafficManagerManagement = new Lazy<TrafficManagerManagement>(() => new TrafficManagerManagement(managementContext));
+      _webSiteManagement = new Lazy<WebSiteManagement>(() => new WebSiteManagement(managementContext));
 
       return this;
     }
@@ -85,8 +88,9 @@ namespace ScriptCs.AzureManagement.ScriptPack
     public SchedulerManagement SchedulerManagement { get { return _schedulerManagement.Value; } }
     public ServiceBusManagement ServiceBusManagement { get { return _serviceBusManagement.Value; } }
     public SqlManagement SqlManagement { get { return _sqlManagement.Value; } }
-    public StorageManagement StorageManagement { get { return _storageManagement.Value; } } 
+    public StorageManagement StorageManagement { get { return _storageManagement.Value; } }
     public VirtualNetworkManagement VirtualNetworkManagement { get { return _virtualNetworkManagement.Value; } }
+    public TrafficManagerManagement TrafficManagerManagement { get { return _trafficManagerManagement.Value; } }
     public WebSiteManagement WebSiteManagement { get { return _webSiteManagement.Value; } }
 
     public string ActiveSubscription
