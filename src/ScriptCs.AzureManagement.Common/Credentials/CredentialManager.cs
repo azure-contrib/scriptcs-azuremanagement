@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Common.Logging;
+using Microsoft.Azure;
+using ScriptCs.AzureManagement.Common.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Common.Logging;
-using Microsoft.WindowsAzure;
-using ScriptCs.AzureManagement.Common.Configuration;
 
 namespace ScriptCs.AzureManagement.Common.Credentials
 {

@@ -1,6 +1,5 @@
 ﻿using Common.Logging;
-using Microsoft.WindowsAzure;
-using Microsoft.WindowsAzure.Management.WebSites;
+using Microsoft.Azure.Management.WebSites;
 using ScriptCs.AzureManagement.Common;
 using ScriptCs.AzureManagement.Common.Credentials;
 
@@ -19,8 +18,8 @@ namespace ScriptCs.AzureManagement.WebSite
 
     public WebSiteManagementClient CreateClient() 
     {
-      var credentials = _credentialManager.GetManagementCredentials();      
-      return CloudContext.Clients.CreateWebSiteManagementClient(credentials);
+      var credentials = _credentialManager.GetManagementCredentials();
+      return new WebSiteManagementClient(credentials);
     }
   }
 }

@@ -13,6 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <NuGetPackageImportStamp>cfacb518</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,35 +33,51 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Common.Logging">
-      <HintPath>..\packages\Common.Logging.2.1.2\lib\net40\Common.Logging.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+    <Reference Include="Common.Logging, Version=3.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.165\lib\net45\Microsoft.Threading.Tasks.dll</HintPath>
+      <HintPath>..\packages\Common.Logging.3.0.0\lib\net40\Common.Logging.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+    <Reference Include="Common.Logging.Core">
+      <HintPath>..\packages\Common.Logging.Core.3.0.0\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Hyak.Common">
+      <HintPath>..\packages\Hyak.Common.1.0.2\lib\net45\Hyak.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Common">
+      <HintPath>..\packages\Microsoft.Azure.Common.2.0.4\lib\net45\Microsoft.Azure.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Common.NetFramework">
+      <HintPath>..\packages\Microsoft.Azure.Common.2.0.4\lib\net45\Microsoft.Azure.Common.NetFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.165\lib\net45\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1-beta1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.WindowsAzure.Common">
-      <HintPath>..\ScriptCs.AzureManagement.Common\bin\Debug\Microsoft.WindowsAzure.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="ScriptCs.Contracts">
-      <HintPath>..\packages\ScriptCs.Contracts.0.8.1\lib\net45\ScriptCs.Contracts.dll</HintPath>
+    <Reference Include="ScriptCs.Contracts, Version=0.13.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ScriptCs.Contracts.0.13.3\lib\net45\ScriptCs.Contracts.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Net.Http.Extensions, Version=2.2.18.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Net.Http.2.2.18\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="System.Net.Http.Primitives, Version=4.2.18.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Net.Http.2.2.18\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Xml.Linq" />
@@ -78,9 +95,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AzureManagement.Fluent.cs" />
-    <None Include="packages.config" />
+    <None Include="app.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ScriptCs.AzureManagement.Automation\ScriptCs.AzureManagement.Automation.csproj">
+      <Project>{311904c9-e7be-4831-9460-f5b02923d165}</Project>
+      <Name>ScriptCs.AzureManagement.Automation</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ScriptCs.AzureManagement.Common\ScriptCs.AzureManagement.Common.csproj">
       <Project>{F78E3473-3DD0-4BE8-88D4-E10D4A78D674}</Project>
       <Name>ScriptCs.AzureManagement.Common</Name>
@@ -88,6 +112,10 @@
     <ProjectReference Include="..\ScriptCs.AzureManagement.Compute\ScriptCs.AzureManagement.Compute.csproj">
       <Project>{71E7CE6B-AE6E-4364-A623-60F69094EC3A}</Project>
       <Name>ScriptCs.AzureManagement.Compute</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ScriptCs.AzureManagement.ExpressRoute\ScriptCs.AzureManagement.ExpressRoute.csproj">
+      <Project>{46eb5550-969c-47ed-9847-1a0beac6a066}</Project>
+      <Name>ScriptCs.AzureManagement.ExpressRoute</Name>
     </ProjectReference>
     <ProjectReference Include="..\ScriptCs.AzureManagement.Infrastructure\ScriptCs.AzureManagement.Infrastructure.csproj">
       <Project>{5736647B-FC79-45C8-8BEC-3F4DB1D387E3}</Project>
@@ -117,6 +145,10 @@
       <Project>{2fc47a0a-bf09-48a9-a384-46030f57d2ef}</Project>
       <Name>ScriptCs.AzureManagement.Storage</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ScriptCs.AzureManagement.TrafficManager\ScriptCs.AzureManagement.TrafficManager.csproj">
+      <Project>{9ad45452-46e5-441f-80c2-8e0a17025ae6}</Project>
+      <Name>ScriptCs.AzureManagement.TrafficManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ScriptCs.AzureManagement.VirtualNetwork\ScriptCs.AzureManagement.VirtualNetwork.csproj">
       <Project>{7391ADE5-FD5C-499E-8F98-3BEC22433640}</Project>
       <Name>ScriptCs.AzureManagement.VirtualNetwork</Name>
@@ -128,10 +160,12 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
-  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.13\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.13\tools\Microsoft.Bcl.Build.targets')" />
-  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
-    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.13\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
-    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.13\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

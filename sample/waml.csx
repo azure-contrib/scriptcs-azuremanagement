@@ -13,12 +13,13 @@ using (var storageClient = storageManagement.CreateClient())
   {
     var createResult = storageClient.StorageAccounts.Create(new StorageAccountCreateParameters
     {
-      ServiceName   = storageAccountName,
-      Location      = LocationNames.SoutheastAsia
+      Name = storageAccountName,
+      Location = GeoRegionNames.SoutheastAsia,
+      AccountType = StorageAccountTypes.StandardLRS
     });
     Console.WriteLine("{0}: {1}", createResult.RequestId, createResult.StatusCode);
 
     var listResponse = storageClient.StorageAccounts.List();
-    Console.WriteLine(String.Join("\n", listResponse.StorageServices.Select(x => x.ServiceName)));
+    Console.WriteLine(String.Join("\n", listResponse.StorageAccounts.Select(x => x.Name)));
   }
 }

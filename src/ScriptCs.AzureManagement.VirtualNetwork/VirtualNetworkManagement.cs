@@ -1,6 +1,5 @@
 ﻿using Common.Logging;
-using Microsoft.WindowsAzure;
-using Microsoft.WindowsAzure.Management.VirtualNetworks;
+using Microsoft.WindowsAzure.Management.Network;
 using ScriptCs.AzureManagement.Common;
 using ScriptCs.AzureManagement.Common.Credentials;
 
@@ -17,10 +16,10 @@ namespace ScriptCs.AzureManagement.VirtualNetwork
       _credentialManager = managementContext.CredentialManager;
     }
 
-    public VirtualNetworkManagementClient CreateClient() 
+    public NetworkManagementClient CreateClient() 
     {
       var credentials = _credentialManager.GetManagementCredentials();
-      return CloudContext.Clients.CreateVirtualNetworkManagementClient(credentials);
+      return new NetworkManagementClient(credentials);
     }
   }
 }

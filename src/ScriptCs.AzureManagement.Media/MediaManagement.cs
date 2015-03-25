@@ -20,7 +20,7 @@ namespace ScriptCs.AzureManagement.Media
     public MediaServicesManagementClient CreateClient()
     {
       var credentials = _credentialManager.GetManagementCredentials();
-      return CloudContext.Clients.CreateMediaServicesManagementClient(credentials);
+      return new MediaServicesManagementClient(credentials);
     }
   }
 }

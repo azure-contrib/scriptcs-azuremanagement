@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using Common.Logging;
-using Microsoft.WindowsAzure;
+using Hyak.Common;
 
 namespace ScriptCs.AzureManagement.Common.TracingInterceptors
 {
-  public class HttpTracingInterceptor : ICloudTracingInterceptor
+
+    public class HttpTracingInterceptor : ICloudTracingInterceptor
   {
     private readonly ILog _logger;
 

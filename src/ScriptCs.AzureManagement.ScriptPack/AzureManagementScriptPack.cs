@@ -15,8 +15,12 @@ namespace ScriptCs.AzureManagement.ScriptPack
       var namespaces = new[]
       {
         "System.Net",
-        "Microsoft.WindowsAzure.Management.Compute.Models",
+        "Microsoft.WindowsAzure.Management.Automation",
+        "Microsoft.WindowsAzure.Management.Automation.Models",
         "Microsoft.WindowsAzure.Management.Compute",
+        "Microsoft.WindowsAzure.Management.Compute.Models",
+        "Microsoft.WindowsAzure.Management.ExpressRoute",
+        "Microsoft.WindowsAzure.Management.ExpressRoute.Models",
         "Microsoft.WindowsAzure.Management.MediaServices",
         "Microsoft.WindowsAzure.Management.MediaServices.Models",
         "Microsoft.WindowsAzure.Management.Models",
@@ -35,13 +39,15 @@ namespace ScriptCs.AzureManagement.ScriptPack
         "Microsoft.WindowsAzure.Management.Sql",
         "Microsoft.WindowsAzure.Management.Storage.Models",
         "Microsoft.WindowsAzure.Management.Storage",
-        "Microsoft.WindowsAzure.Management.VirtualNetworks.Models",
-        "Microsoft.WindowsAzure.Management.VirtualNetworks",
-        "Microsoft.WindowsAzure.Management.WebSites.Models",
-        "Microsoft.WindowsAzure.Management.WebSites",
+        "Microsoft.WindowsAzure.Management.Network.Models",
+        "Microsoft.WindowsAzure.Management.Network",
+        "Microsoft.WindowsAzure.Management.TrafficManager",
+        "Microsoft.WindowsAzure.Management.TrafficManager.Models",
+        "Microsoft.Azure.Management.WebSites.Models",
+        "Microsoft.Azure.Management.WebSites",
         "Microsoft.WindowsAzure.Management",
         "Microsoft.WindowsAzure",
-        "Microsoft.WindowsAzure.Common",
+       // "Microsoft.WindowsAzure.Common",
       }.ToList();
 
       var references = new[]
@@ -60,8 +66,10 @@ namespace ScriptCs.AzureManagement.ScriptPack
     [ImportingConstructor]
     public AzureManagementScriptPack(ILog logger)
     {
-      _logger = logger;
+        _logger = logger;
     }
+
+    // public AzureManagementScriptPack() { _logger = new global::Common.Logging.Simple.NoOpLogger(); }
 
     public IScriptPackContext GetContext()
     {

@@ -19,8 +19,8 @@ namespace ScriptCs.AzureManagement.ServiceBus
 
     public ServiceBusManagementClient CreateClient() 
     {
-      var credentials = _credentialManager.GetManagementCredentials();      
-      return CloudContext.Clients.CreateServiceBusManagementClient(credentials);
+      var credentials = _credentialManager.GetManagementCredentials();
+      return new ServiceBusManagementClient(credentials);
     }
   }
 }

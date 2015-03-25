@@ -1,18 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptCs.AzureManagement.Common", "ScriptCs.AzureManagement.Common\ScriptCs.AzureManagement.Common.csproj", "{F78E3473-3DD0-4BE8-88D4-E10D4A78D674}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptCs.AzureManagement.ScriptPack", "ScriptCs.AzureManagement.ScriptPack\ScriptCs.AzureManagement.ScriptPack.csproj", "{28115155-DEB5-42FD-B8A6-03220736C8E9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptCs.AzureManagement.Infrastructure", "ScriptCs.AzureManagement.Infrastructure\ScriptCs.AzureManagement.Infrastructure.csproj", "{5736647B-FC79-45C8-8BEC-3F4DB1D387E3}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C53AD822-2053-48C9-897D-15B74A8EC429}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptCs.AzureManagement.Storage", "ScriptCs.AzureManagement.Storage\ScriptCs.AzureManagement.Storage.csproj", "{2FC47A0A-BF09-48A9-A384-46030F57D2EF}"
 EndProject
@@ -31,6 +26,19 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptCs.AzureManagement.ServiceBus", "ScriptCs.AzureManagement.ServiceBus\ScriptCs.AzureManagement.ServiceBus.csproj", "{120A617A-552C-497A-B985-3B68C03F5788}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptCs.AzureManagement.Sql", "ScriptCs.AzureManagement.Sql\ScriptCs.AzureManagement.Sql.csproj", "{46D17A73-F367-447C-A9D5-0A58F822E725}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{011377DC-D188-46B5-9820-1755643B34CD}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptCs.AzureManagement.TrafficManager", "ScriptCs.AzureManagement.TrafficManager\ScriptCs.AzureManagement.TrafficManager.csproj", "{9AD45452-46E5-441F-80C2-8E0A17025AE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptCs.AzureManagement.Automation", "ScriptCs.AzureManagement.Automation\ScriptCs.AzureManagement.Automation.csproj", "{311904C9-E7BE-4831-9460-F5B02923D165}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptCs.AzureManagement.ExpressRoute", "ScriptCs.AzureManagement.ExpressRoute\ScriptCs.AzureManagement.ExpressRoute.csproj", "{46EB5550-969C-47ED-9847-1A0BEAC6A066}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -86,6 +94,18 @@ Global
 		{46D17A73-F367-447C-A9D5-0A58F822E725}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46D17A73-F367-447C-A9D5-0A58F822E725}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46D17A73-F367-447C-A9D5-0A58F822E725}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AD45452-46E5-441F-80C2-8E0A17025AE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AD45452-46E5-441F-80C2-8E0A17025AE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AD45452-46E5-441F-80C2-8E0A17025AE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AD45452-46E5-441F-80C2-8E0A17025AE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{311904C9-E7BE-4831-9460-F5B02923D165}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{311904C9-E7BE-4831-9460-F5B02923D165}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{311904C9-E7BE-4831-9460-F5B02923D165}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{311904C9-E7BE-4831-9460-F5B02923D165}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46EB5550-969C-47ED-9847-1A0BEAC6A066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46EB5550-969C-47ED-9847-1A0BEAC6A066}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46EB5550-969C-47ED-9847-1A0BEAC6A066}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46EB5550-969C-47ED-9847-1A0BEAC6A066}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
